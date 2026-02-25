@@ -69,9 +69,10 @@ export function SajuResult({ saju, gender, onReset }: SajuResultProps) {
             <p className="text-base font-semibold">
               {pastLife.symbol} {pastLife.occupation}
             </p>
-            <p className="text-sm text-muted-foreground">
+            <p className="text-sm text-muted-foreground mb-2">
               시대적 배경: {pastLife.era}
             </p>
+            <p className="text-sm leading-relaxed">{pastLife.occupationDetail}</p>
           </div>
 
           <Separator />

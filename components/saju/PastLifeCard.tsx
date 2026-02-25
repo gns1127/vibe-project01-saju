@@ -95,6 +95,7 @@ export const PastLifeCard = forwardRef<HTMLDivElement, PastLifeCardProps>(
           <div className="text-sm text-white/50 uppercase tracking-widest">전생의 모습</div>
           <h2 className="text-2xl font-bold text-yellow-300">{pastLife.occupation}</h2>
           <p className="text-sm text-white/70 leading-relaxed">{pastLife.environment}</p>
+          <p className="text-xs text-white/55 leading-relaxed">{pastLife.occupationDetail}</p>
         </div>
 
         {/* 주 오행 배지 */}
