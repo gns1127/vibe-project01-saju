@@ -130,9 +130,22 @@ export const PastLifeCard = forwardRef<HTMLDivElement, PastLifeCardProps>(
         </div>
 
         {/* 이번 생의 사명 */}
-        <div className="relative rounded-xl bg-white/5 border border-white/10 p-4 space-y-1.5">
+        <div className="relative rounded-xl bg-white/5 border border-white/10 p-4 space-y-3">
           <div className="text-xs text-yellow-400/80 font-medium">이번 생의 사명 ✦</div>
           <p className="text-sm text-white/80 leading-relaxed">{pastLife.mission}</p>
+          <div className="space-y-1.5">
+            <div className="text-xs text-white/40">💼 추천 직업</div>
+            <div className="flex flex-wrap gap-1.5">
+              {pastLife.recommendedJobs.map(({ job }) => (
+                <span
+                  key={job}
+                  className="text-xs px-2 py-0.5 rounded-full bg-yellow-400/10 text-yellow-300/80 border border-yellow-400/20"
+                >
+                  {job}
+                </span>
+              ))}
+            </div>
+          </div>
         </div>
 
         {/* 워터마크 */}

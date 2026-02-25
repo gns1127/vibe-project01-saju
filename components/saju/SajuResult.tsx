@@ -105,8 +105,19 @@ export function SajuResult({ saju, gender, onReset }: SajuResultProps) {
           {/* 이번 생의 사명 */}
           <div className="space-y-1.5">
             <p className="text-sm font-medium text-muted-foreground">✦ 이번 생의 사명</p>
-            <div className="rounded-lg bg-primary/5 border border-primary/20 p-4">
+            <div className="rounded-lg bg-primary/5 border border-primary/20 p-4 space-y-4">
               <p className="text-sm leading-relaxed font-medium">{pastLife.mission}</p>
+              <div className="space-y-2">
+                <p className="text-xs text-muted-foreground font-medium">💼 현생 추천 직업</p>
+                <ul className="space-y-1.5">
+                  {pastLife.recommendedJobs.map(({ job, reason }) => (
+                    <li key={job} className="text-sm">
+                      <span className="font-semibold text-primary">{job}</span>
+                      <span className="text-muted-foreground"> — {reason}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
         </CardContent>
