@@ -17,6 +17,12 @@ export function Footer() {
           <Link href="/saju/compare" className="hover:text-foreground transition-colors">
             친구 비교
           </Link>
+          <Link href="/privacy" className="hover:text-foreground transition-colors">
+            개인정보처리방침
+          </Link>
+          <Link href="/terms" className="hover:text-foreground transition-colors">
+            이용약관
+          </Link>
           <span>&copy; {new Date().getFullYear()} 전생탐정</span>
         </div>
       </div>
