@@ -36,6 +36,9 @@ export const metadata: Metadata = {
     title: "전생탐정 - 사주로 알아보는 나의 전생",
     description: "나의 전생은 무엇이었을까? 사주팔자로 알아보세요!",
   },
+  verification: {
+    google: "SGLavFPWVeyeLUMofWuBz_XvoQ2IbLP9aJSOX9R0M3o",
+  },
 };
 
 export default function RootLayout({
