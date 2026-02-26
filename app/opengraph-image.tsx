@@ -20,10 +20,19 @@ const STARS = [
 ];
 
 export default async function Image() {
-  // 한글 폰트 로드 (Noto Sans KR)
-  const fontData = await fetch(
-    "https://fonts.gstatic.com/s/notosanskr/v36/PbyxFmXiEBPT4ITbgNA5Cgm203Tq4JJWq209pU0DPdWuqxJco4H6RFT.0.woff2"
-  ).then((res) => res.arrayBuffer());
+  // 한글 폰트 로드 실패 시에도 이미지가 생성되도록 try-catch 처리
+  let fontData: ArrayBuffer | null = null;
+  try {
+    const res = await fetch(
+      "https://fonts.gstatic.com/s/notosanskr/v36/PbyxFmXiEBPT4ITbgNA5Cgm203Tq4JJWq209pU0DPdWuqxJco4H6RFT.0.woff2",
+      { cache: "force-cache" }
+    );
+    if (res.ok) {
+      fontData = await res.arrayBuffer();
+    }
+  } catch {
+    // 폰트 로드 실패 시 기본 시스템 폰트 사용
+  }
 
   return new ImageResponse(
     (
@@ -38,6 +47,7 @@ export default async function Image() {
             "linear-gradient(135deg, #080416 0%, #150933 35%, #0e1a3a 65%, #04091a 100%)",
           position: "relative",
           overflow: "hidden",
+          fontFamily: fontData ? "NotoSansKR" : "sans-serif",
         }}
       >
         {/* 별빛 파티클 */}
@@ -79,13 +89,12 @@ export default async function Image() {
             flexDirection: "column",
             alignItems: "center",
             justifyContent: "center",
-            gap: "0px",
             position: "relative",
             zIndex: 10,
           }}
         >
           {/* 수정구슬 이모지 */}
-          <div style={{ fontSize: "96px", lineHeight: 1, marginBottom: "20px" }}>
+          <div style={{ fontSize: "96px", lineHeight: "1", marginBottom: "20px" }}>
             🔮
           </div>
 
@@ -96,9 +105,8 @@ export default async function Image() {
               fontWeight: 700,
               color: "#D4AF37",
               letterSpacing: "-2px",
-              lineHeight: 1.1,
+              lineHeight: "1.1",
               marginBottom: "16px",
-              textShadow: "0 0 40px rgba(212,175,55,0.4)",
             }}
           >
             전생탐정
@@ -157,14 +165,18 @@ export default async function Image() {
     ),
     {
       ...size,
-      fonts: [
-        {
-          name: "NotoSansKR",
-          data: fontData,
-          style: "normal",
-          weight: 400,
-        },
-      ],
+      ...(fontData
+        ? {
+            fonts: [
+              {
+                name: "NotoSansKR",
+                data: fontData,
+                style: "normal",
+                weight: 400,
+              },
+            ],
+          }
+        : {}),
     }
   );
 }
