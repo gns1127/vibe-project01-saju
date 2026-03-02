@@ -68,7 +68,34 @@ export default function SajuPage() {
 
         {/* 단계별 렌더링 */}
         {step === 'input' && (
-          <SajuInput onSubmit={handleSubmit} />
+          <>
+            <SajuInput onSubmit={handleSubmit} />
+
+            {/* 입력 안내 — AdSense 정책: 콘텐츠 보강 */}
+            <div className="max-w-xl mx-auto mt-10 glass-card rounded-2xl p-6 text-sm text-muted-foreground space-y-4">
+              <h2 className="text-base font-semibold text-foreground">사주팔자 입력 안내</h2>
+              <div>
+                <p className="font-medium text-foreground mb-1">양력 / 음력 선택</p>
+                <p>기본값은 양력(그레고리력)입니다. 음력 생년월일을 알고 계신다면 &apos;음력&apos; 체크박스를 선택하세요.
+                  양력·음력 모두 정확한 간지(干支) 변환을 지원합니다.</p>
+              </div>
+              <div>
+                <p className="font-medium text-foreground mb-1">출생 시간을 모를 때</p>
+                <p>시간 선택란에서 &apos;모름&apos;을 선택하면 연·월·일 세 기둥만으로 결과를 계산합니다.
+                  일주(日柱)가 핵심 지표이므로 시간을 몰라도 전생 유형을 충분히 확인할 수 있습니다.</p>
+              </div>
+              <div>
+                <p className="font-medium text-foreground mb-1">1~2월생 입춘 기준</p>
+                <p>사주명리학에서 한 해의 시작은 양력 1월 1일이 아니라 입춘(立春, 매년 2월 4~5일경)입니다.
+                  전생탐정은 입춘 시각을 자동으로 반영하여 정확한 연주(年柱)를 계산합니다.</p>
+              </div>
+              <div>
+                <p className="font-medium text-foreground mb-1">결과 활용 안내</p>
+                <p>결과는 재미와 자기 성찰을 위한 엔터테인먼트 콘텐츠입니다.
+                  이미지로 저장하거나 카카오톡·X(트위터)로 친구에게 공유할 수 있습니다.</p>
+              </div>
+            </div>
+          </>
         )}
 
         {step === 'loading' && (
