@@ -17,6 +17,15 @@ export function Footer() {
           <Link href="/saju/compare" className="hover:text-foreground transition-colors">
             친구 비교
           </Link>
+          <Link href="/about" className="hover:text-foreground transition-colors">
+            소개
+          </Link>
+          <a
+            href="mailto:tkdgns1127@naver.com"
+            className="hover:text-foreground transition-colors"
+          >
+            문의
+          </a>
           <Link href="/privacy" className="hover:text-foreground transition-colors">
             개인정보처리방침
           </Link>

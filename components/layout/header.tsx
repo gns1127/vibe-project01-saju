@@ -25,6 +25,12 @@ export function Header() {
             >
               전생 확인
             </Link>
+            <Link
+              href="/about"
+              className="transition-colors hover:text-foreground/80 text-foreground/60"
+            >
+              소개
+            </Link>
           </nav>
         </div>
         <div className="flex flex-1 items-center justify-end space-x-2">

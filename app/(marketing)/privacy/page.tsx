@@ -115,7 +115,16 @@ export default function PrivacyPage() {
         <section>
           <h2 className="text-xl font-semibold text-foreground mb-3">9. 문의</h2>
           <p>
-            개인정보 관련 문의사항은 서비스 내 문의 채널을 이용해 주세요.
+            개인정보 관련 문의사항은 아래 이메일로 연락해 주세요.
+          </p>
+          <p className="mt-2">
+            이메일:{" "}
+            <a
+              href="mailto:tkdgns1127@naver.com"
+              className="text-primary underline underline-offset-4"
+            >
+              tkdgns1127@naver.com
+            </a>
           </p>
         </section>
       </div>
